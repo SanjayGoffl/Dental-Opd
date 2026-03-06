@@ -2,8 +2,12 @@
 // DENTAL OPD — Consent Management Page
 // ============================================
 
+<<<<<<< HEAD
 function renderConsent(role, params) {
     const p = getActivePatient(params);
+=======
+function renderConsent() {
+>>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -14,8 +18,13 @@ function renderConsent(role, params) {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
+<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div><b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender}</div>
+=======
+      <div class="avatar">R</div>
+      <div><b>Ramesh Kumar</b> • UHID-2024-001 • 45/M</div>
+>>>>>>> origin/main
     </div>
 
     <!-- Consent Document -->
@@ -24,7 +33,11 @@ function renderConsent(role, params) {
 
       <div style="background:var(--bg);padding:var(--sp-4);border-radius:var(--radius);font-size:var(--fs-sm);line-height:1.7;color:var(--text-secondary);margin-bottom:var(--sp-4);">
         <p><b>Procedure:</b> Root Canal Treatment (RCT) followed by Post & Core and PFM Crown on tooth #46</p>
+<<<<<<< HEAD
         <p><b>I, ${p.name},</b> hereby authorize the dental team at the College of Dental Sciences & Hospital to perform the above-mentioned procedure(s).</p>
+=======
+        <p><b>I, Ramesh Kumar,</b> hereby authorize the dental team at the College of Dental Sciences & Hospital to perform the above-mentioned procedure(s).</p>
+>>>>>>> origin/main
         <p>I understand and acknowledge the following:</p>
         <ul style="list-style:decimal;padding-left:var(--sp-6);margin:var(--sp-3) 0;">
           <li style="margin-bottom:var(--sp-2);">The nature of the proposed treatment, including the steps involved in Root Canal Treatment, has been explained to me.</li>
@@ -61,7 +74,11 @@ function renderConsent(role, params) {
           <div class="form-row mt-3">
             <div class="form-group">
               <label class="form-label fs-xs">Patient Name</label>
+<<<<<<< HEAD
               <input type="text" class="form-input" value="${p.name}">
+=======
+              <input type="text" class="form-input" value="Ramesh Kumar">
+>>>>>>> origin/main
             </div>
             <div class="form-group">
               <label class="form-label fs-xs">Date</label>
@@ -101,10 +118,17 @@ function renderConsent(role, params) {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-4);">
+<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('treatment-plan', {id:'${p.id}'})">← Treatment Plan</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary"><i data-lucide="printer" style="width:16px;height:16px;"></i> Print</button>
         <button class="btn btn-primary btn-lg" onclick="navigateTo('prescription', {id:'${p.id}'})"><i data-lucide="check" style="width:16px;height:16px;"></i> Confirm & Proceed to Rx</button>
+=======
+      <button class="btn btn-ghost" onclick="navigateTo('treatment-plan')">← Treatment Plan</button>
+      <div style="display:flex;gap:var(--sp-3);">
+        <button class="btn btn-secondary"><i data-lucide="printer" style="width:16px;height:16px;"></i> Print</button>
+        <button class="btn btn-primary btn-lg" onclick="navigateTo('prescription')"><i data-lucide="check" style="width:16px;height:16px;"></i> Confirm & Proceed to Rx</button>
+>>>>>>> origin/main
       </div>
     </div>`;
 }

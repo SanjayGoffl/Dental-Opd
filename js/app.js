@@ -4,6 +4,7 @@
 
 let currentRole = 'junior_resident';
 let currentPage = 'dashboard';
+<<<<<<< HEAD
 let activePatientId = null;
 
 const PATIENT_CONTEXT_PAGES = new Set([
@@ -17,6 +18,8 @@ const PATIENT_CONTEXT_PAGES = new Set([
     'consent',
     'prescription'
 ]);
+=======
+>>>>>>> origin/main
 
 // ── Page Registry ──
 const PAGES = {
@@ -42,6 +45,7 @@ const PAGES = {
     help: { title: 'Help & Support', render: renderHelp }
 };
 
+<<<<<<< HEAD
 function getPatientById(patientId) {
     return MOCK.patients.find(p => p.id === patientId);
 }
@@ -69,11 +73,14 @@ function resolvePageParams(pageId, params) {
     return resolved;
 }
 
+=======
+>>>>>>> origin/main
 // ── Navigate to page ──
 function navigateTo(pageId, params) {
     const page = PAGES[pageId];
     if (!page) return;
 
+<<<<<<< HEAD
     const resolvedParams = resolvePageParams(pageId, params);
 
     // Force explicit patient selection for patient-context pages.
@@ -84,13 +91,21 @@ function navigateTo(pageId, params) {
 
     currentPage = pageId;
     window._pageParams = resolvedParams;
+=======
+    currentPage = pageId;
+    window._pageParams = params || {};
+>>>>>>> origin/main
 
     // Update topbar title
     document.getElementById('topbar-title').textContent = page.title;
 
     // Render page content
     const content = document.getElementById('content');
+<<<<<<< HEAD
     content.innerHTML = '<div class="fade-in">' + page.render(currentRole, resolvedParams) + '</div>';
+=======
+    content.innerHTML = '<div class="fade-in">' + page.render(currentRole, params) + '</div>';
+>>>>>>> origin/main
 
     // Update sidebar active state
     document.querySelectorAll('.sidebar-item').forEach(item => {
@@ -107,7 +122,10 @@ function navigateTo(pageId, params) {
 // ── Set Role ──
 function setRole(role) {
     currentRole = role;
+<<<<<<< HEAD
     activePatientId = null;
+=======
+>>>>>>> origin/main
     MOCK.currentUser.role = role;
 
     // Update role label

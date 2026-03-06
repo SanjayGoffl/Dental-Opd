@@ -2,9 +2,13 @@
 // DENTAL OPD — Case History Page
 // ============================================
 
+<<<<<<< HEAD
 function renderCaseHistory(role, params) {
     const p = getActivePatient(params);
     const allergyText = p.allergies.length ? p.allergies.join(', ') : 'No known allergies';
+=======
+function renderCaseHistory() {
+>>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -19,10 +23,17 @@ function renderCaseHistory(role, params) {
 
     <!-- Patient Header -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-4);background:var(--primary-bg);border-radius:var(--radius-lg);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
+<<<<<<< HEAD
       <div class="avatar avatar-lg">${p.name.charAt(0)}</div>
       <div>
         <div style="font-weight:var(--fw-semibold);font-size:var(--fs-md);">${p.name} <span style="margin-left:var(--sp-2);">${statusBadge(p.status)}</span></div>
         <div style="font-size:var(--fs-sm);color:var(--text-secondary);">${p.uhid} • ${p.age}/${p.gender} • ${p.bloodGroup} • Allergy: ${allergyText}</div>
+=======
+      <div class="avatar avatar-lg">R</div>
+      <div>
+        <div style="font-weight:var(--fw-semibold);font-size:var(--fs-md);">Ramesh Kumar <span class="badge badge-treatment" style="margin-left:var(--sp-2);">In Treatment</span></div>
+        <div style="font-size:var(--fs-sm);color:var(--text-secondary);">UHID-2024-001 • 45/M • B+ • Allergy: Penicillin</div>
+>>>>>>> origin/main
       </div>
     </div>
 
@@ -31,7 +42,11 @@ function renderCaseHistory(role, params) {
       <div class="form-section-title"><i data-lucide="message-circle" style="width:18px;height:18px;color:var(--primary);"></i> Chief Complaint</div>
       <div class="form-group">
         <label class="form-label">In patient's own words <span class="required">*</span></label>
+<<<<<<< HEAD
         <textarea class="form-textarea" rows="3" placeholder="Record the patient's chief complaint verbatim...">${p.chiefComplaint}</textarea>
+=======
+        <textarea class="form-textarea" rows="3" placeholder="Record the patient's chief complaint verbatim...">Pain in lower right back tooth since 1 week.</textarea>
+>>>>>>> origin/main
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -120,9 +135,15 @@ function renderCaseHistory(role, params) {
     <div class="form-section">
       <div class="form-section-title"><i data-lucide="heart" style="width:18px;height:18px;color:var(--danger);"></i> Past Medical History</div>
       <div class="form-row" style="grid-template-columns:repeat(4, 1fr);">
+<<<<<<< HEAD
         <label class="form-check"><input type="checkbox" ${p.pmh.htn ? 'checked' : ''}> <span>Hypertension</span></label>
         <label class="form-check"><input type="checkbox" ${p.pmh.dm ? 'checked' : ''}> <span>Diabetes Mellitus</span></label>
         <label class="form-check"><input type="checkbox" ${p.pmh.cad ? 'checked' : ''}> <span>Cardiac Disease</span></label>
+=======
+        <label class="form-check"><input type="checkbox" checked> <span>Hypertension</span></label>
+        <label class="form-check"><input type="checkbox"> <span>Diabetes Mellitus</span></label>
+        <label class="form-check"><input type="checkbox"> <span>Cardiac Disease</span></label>
+>>>>>>> origin/main
         <label class="form-check"><input type="checkbox"> <span>Bleeding Disorder</span></label>
         <label class="form-check"><input type="checkbox"> <span>Asthma</span></label>
         <label class="form-check"><input type="checkbox"> <span>Epilepsy</span></label>
@@ -131,7 +152,11 @@ function renderCaseHistory(role, params) {
       </div>
       <div class="form-group mt-3">
         <label class="form-label">Details / Other Conditions</label>
+<<<<<<< HEAD
         <textarea class="form-textarea" rows="2" placeholder="Specify details...">${p.pmh.htn ? 'On antihypertensive medication (Amlodipine 5mg OD). Well controlled.' : 'No major systemic medical history reported.'}</textarea>
+=======
+        <textarea class="form-textarea" rows="2" placeholder="Specify details...">On antihypertensive medication (Amlodipine 5mg OD) for 3 years. Well controlled.</textarea>
+>>>>>>> origin/main
       </div>
     </div>
 
@@ -168,7 +193,11 @@ function renderCaseHistory(role, params) {
       <button class="btn btn-ghost" onclick="navigateTo('patients')">← Back to Patients</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary">Save Draft</button>
+<<<<<<< HEAD
         <button class="btn btn-primary btn-lg" onclick="navigateTo('clinical-exam', {id:'${p.id}'})"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Proceed to Clinical Exam</button>
+=======
+        <button class="btn btn-primary btn-lg"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Proceed to Clinical Exam</button>
+>>>>>>> origin/main
       </div>
     </div>`;
 }

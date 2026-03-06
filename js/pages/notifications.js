@@ -33,6 +33,7 @@ function renderNotifications() {
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="table-wrapper">
       ${allNotifications.map(n => `
         <div class="notif-item ${!n.read ? 'unread' : ''}">
@@ -44,6 +45,19 @@ function renderNotifications() {
             <div class="notif-desc">${n.message}</div>
           </div>
           <div class="notif-time">${n.time}</div>
+=======
+    <div style="display:flex;flex-direction:column;gap:var(--sp-2);">
+      ${allNotifications.map(n => `
+        <div class="notification-item ${!n.read ? 'unread' : ''}" style="cursor:pointer;">
+          <div class="notification-icon" style="background:${colorMap[n.type] || colorMap.info}20;">
+            <i data-lucide="${iconMap[n.type] || 'bell'}" style="width:16px;height:16px;color:${colorMap[n.type] || colorMap.info};"></i>
+          </div>
+          <div style="flex:1;">
+            <div class="notification-title">${n.title}</div>
+            <div class="notification-message">${n.message}</div>
+          </div>
+          <div class="notification-time">${n.time}</div>
+>>>>>>> origin/main
         </div>
       `).join('')}
     </div>`;

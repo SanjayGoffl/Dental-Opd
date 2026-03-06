@@ -2,8 +2,12 @@
 // DENTAL OPD — Diagnosis Page
 // ============================================
 
+<<<<<<< HEAD
 function renderDiagnosis(role, params) {
     const p = getActivePatient(params);
+=======
+function renderDiagnosis() {
+>>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -18,9 +22,15 @@ function renderDiagnosis(role, params) {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
+<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div><b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender}</div>
       <div style="margin-left:auto;">${statusBadge(p.status)}</div>
+=======
+      <div class="avatar">R</div>
+      <div><b>Ramesh Kumar</b> • UHID-2024-001 • 45/M</div>
+      <div style="margin-left:auto;">${statusBadge('review')}</div>
+>>>>>>> origin/main
     </div>
 
     <!-- Clinical Summary -->
@@ -29,7 +39,11 @@ function renderDiagnosis(role, params) {
       <div class="grid grid-2 gap-4">
         <div>
           <span class="text-muted fs-xs">Chief Complaint</span>
+<<<<<<< HEAD
           <div class="fs-sm fw-medium">${p.chiefComplaint}</div>
+=======
+          <div class="fs-sm fw-medium">Pain in lower right molar since 1 week</div>
+>>>>>>> origin/main
         </div>
         <div>
           <span class="text-muted fs-xs">Key Findings</span>
@@ -116,10 +130,17 @@ function renderDiagnosis(role, params) {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-5);">
+<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('investigation', {id:'${p.id}'})">← Investigations</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary">Save Draft</button>
         <button class="btn btn-primary btn-lg" onclick="navigateTo('treatment-plan', {id:'${p.id}'})"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Treatment Plan</button>
+=======
+      <button class="btn btn-ghost" onclick="navigateTo('investigation')">← Investigations</button>
+      <div style="display:flex;gap:var(--sp-3);">
+        <button class="btn btn-secondary">Save Draft</button>
+        <button class="btn btn-primary btn-lg" onclick="navigateTo('treatment-plan')"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Treatment Plan</button>
+>>>>>>> origin/main
       </div>
     </div>`;
 }

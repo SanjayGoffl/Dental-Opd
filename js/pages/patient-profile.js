@@ -3,10 +3,18 @@
 // ============================================
 
 function renderPatientProfile(role, params) {
+<<<<<<< HEAD
     const p = getActivePatient(params);
     const doc = MOCK.doctors.find(d => d.id === p.assignedTo);
 
     return `
+=======
+  const pid = params?.id || 'P001';
+  const p = MOCK.patients.find(pt => pt.id === pid) || MOCK.patients[0];
+  const doc = MOCK.doctors.find(d => d.id === p.assignedTo);
+
+  return `
+>>>>>>> origin/main
     <!-- Profile Header -->
     <div class="profile-header">
       <div class="profile-avatar">${p.name.charAt(0)}</div>
@@ -28,11 +36,19 @@ function renderPatientProfile(role, params) {
 
     <!-- Quick Actions -->
     <div class="flex gap-3 mb-6 flex-wrap">
+<<<<<<< HEAD
       <button class="btn btn-primary" onclick="navigateTo('case-history', {id:'${p.id}'})"><i data-lucide="file-plus" style="width:16px;height:16px;"></i> Case History</button>
       <button class="btn btn-secondary" onclick="navigateTo('clinical-exam', {id:'${p.id}'})"><i data-lucide="stethoscope" style="width:16px;height:16px;"></i> Clinical Exam</button>
       <button class="btn btn-secondary" onclick="navigateTo('dental-chart', {id:'${p.id}'})"><i data-lucide="scan" style="width:16px;height:16px;"></i> Dental Chart</button>
       <button class="btn btn-secondary" onclick="navigateTo('investigation', {id:'${p.id}'})"><i data-lucide="microscope" style="width:16px;height:16px;"></i> Investigation</button>
       <button class="btn btn-secondary" onclick="navigateTo('prescription', {id:'${p.id}'})"><i data-lucide="pill" style="width:16px;height:16px;"></i> Prescription</button>
+=======
+      <button class="btn btn-primary" onclick="navigateTo('case-history')"><i data-lucide="file-plus" style="width:16px;height:16px;"></i> Case History</button>
+      <button class="btn btn-secondary" onclick="navigateTo('clinical-exam')"><i data-lucide="stethoscope" style="width:16px;height:16px;"></i> Clinical Exam</button>
+      <button class="btn btn-secondary" onclick="navigateTo('dental-chart')"><i data-lucide="scan" style="width:16px;height:16px;"></i> Dental Chart</button>
+      <button class="btn btn-secondary" onclick="navigateTo('investigation')"><i data-lucide="microscope" style="width:16px;height:16px;"></i> Investigation</button>
+      <button class="btn btn-secondary" onclick="navigateTo('prescription')"><i data-lucide="pill" style="width:16px;height:16px;"></i> Prescription</button>
+>>>>>>> origin/main
     </div>
 
     <!-- Tabs -->
@@ -69,7 +85,11 @@ function renderPatientProfile(role, params) {
         </div>
 
         <div class="card">
+<<<<<<< HEAD
           <div class="card-title mb-4">🩺 Personal Details</div>
+=======
+          <div class="card-title mb-4">Personal Details</div>
+>>>>>>> origin/main
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);">
             <div><span class="text-muted fs-xs">Full Name</span><div class="fs-sm fw-medium">${p.name}</div></div>
             <div><span class="text-muted fs-xs">Age / Gender</span><div class="fs-sm fw-medium">${p.age} yrs / ${p.gender === 'M' ? 'Male' : 'Female'}</div></div>
@@ -85,14 +105,24 @@ function renderPatientProfile(role, params) {
         <div class="card-title mb-4">📑 Case Workflow Progress</div>
         <div style="display:flex;gap:var(--sp-1);align-items:center;">
           ${['Registration', 'Case History', 'Clinical Exam', 'Investigation', 'Diagnosis', 'Treatment', 'Consent', 'Rx', 'Complete'].map((step, i) => {
+<<<<<<< HEAD
         const done = i < 4;
         const current = i === 4;
         return `
+=======
+    const done = i < 4;
+    const current = i === 4;
+    return `
+>>>>>>> origin/main
               <div style="flex:1;text-align:center;">
                 <div style="height:4px;background:${done ? 'var(--primary)' : current ? 'var(--warning)' : 'var(--border)'};border-radius:var(--radius-full);margin-bottom:var(--sp-1);"></div>
                 <span style="font-size:0.625rem;color:${done ? 'var(--primary)' : current ? 'var(--warning)' : 'var(--text-muted)'};font-weight:${current ? '600' : '400'};">${step}</span>
               </div>`;
+<<<<<<< HEAD
     }).join('')}
+=======
+  }).join('')}
+>>>>>>> origin/main
         </div>
       </div>
     </div>
@@ -151,7 +181,13 @@ function renderPatientProfile(role, params) {
 }
 
 function switchProfileTab(tabId) {
+<<<<<<< HEAD
     document.querySelectorAll('#profile-tabs .tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
     document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
     document.getElementById('tab-' + tabId)?.classList.add('active');
+=======
+  document.querySelectorAll('#profile-tabs .tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
+  document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+  document.getElementById('tab-' + tabId)?.classList.add('active');
+>>>>>>> origin/main
 }
