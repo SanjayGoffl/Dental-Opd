@@ -1,0 +1,412 @@
+/* ============================================
+   DENTAL OPD — Page-Specific Styles
+   ============================================ */
+
+/* ── Dental Chart ── */
+.dental-chart-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+}
+
+.dental-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-6);
+}
+
+.dental-arch {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--sp-1);
+}
+
+.dental-arch.lower {
+    align-items: flex-start;
+}
+
+.tooth {
+    width: 36px;
+    height: 44px;
+    border: 2px solid var(--border-strong);
+    border-radius: 6px 6px 4px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: var(--surface);
+    position: relative;
+    user-select: none;
+}
+
+.tooth:hover {
+    border-color: var(--primary);
+    background: var(--primary-bg);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.tooth.selected {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
+}
+
+.tooth.caries {
+    background: #FEF3C7;
+    border-color: var(--warning);
+}
+
+.tooth.missing {
+    background: var(--bg-alt);
+    border-style: dashed;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.tooth.filled {
+    background: #DBEAFE;
+    border-color: var(--info);
+}
+
+.tooth.rct {
+    background: #E0E7FF;
+    border-color: #6366F1;
+}
+
+.tooth.crown {
+    background: #FEE2E2;
+    border-color: var(--danger);
+}
+
+.tooth.extraction {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+}
+
+.tooth-label {
+    position: absolute;
+    bottom: -18px;
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.dental-midline {
+    width: 2px;
+    height: 52px;
+    background: var(--border-strong);
+    margin: 0 var(--sp-2);
+}
+
+.arch-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quadrant-label {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    color: var(--text-muted);
+    width: 30px;
+    text-align: center;
+}
+
+.tooth-legend {
+    display: flex;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--sp-4);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+}
+
+/* Condition Panel */
+.condition-panel {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--sp-4);
+}
+
+.condition-btn {
+    padding: var(--sp-1) var(--sp-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-size: var(--fs-xs);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.condition-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.condition-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* ── Queue Board ── */
+.queue-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+}
+
+.queue-column {
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+    min-height: 400px;
+}
+
+.queue-column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-4);
+    padding-bottom: var(--sp-3);
+    border-bottom: 2px solid var(--border);
+}
+
+.queue-column-title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+}
+
+.queue-count {
+    background: var(--border);
+    color: var(--text-muted);
+    padding: 1px 8px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+}
+
+.queue-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--sp-3);
+    margin-bottom: var(--sp-2);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.queue-card:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-light);
+}
+
+.queue-patient-name {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--text);
+}
+
+.queue-meta {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    margin-top: var(--sp-1);
+}
+
+/* ── Calendar ── */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.calendar-header-cell {
+    background: var(--bg);
+    padding: var(--sp-2);
+    text-align: center;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.calendar-cell {
+    background: var(--surface);
+    padding: var(--sp-2);
+    min-height: 100px;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.calendar-cell:hover {
+    background: var(--primary-bg);
+}
+
+.calendar-date {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-1);
+}
+
+.calendar-cell.today .calendar-date {
+    background: var(--primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-event {
+    font-size: 0.6875rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: var(--primary-bg);
+    color: var(--primary);
+    border-left: 2px solid var(--primary);
+}
+
+/* ── Prescription ── */
+.rx-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-4);
+}
+
+.rx-symbol {
+    font-size: var(--fs-3xl);
+    font-weight: var(--fw-bold);
+    color: var(--primary);
+    font-family: serif;
+}
+
+.drug-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+    gap: var(--sp-3);
+    align-items: end;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Profile Header ── */
+.profile-header {
+    display: flex;
+    gap: var(--sp-6);
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+    margin-bottom: var(--sp-6);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-bold);
+    flex-shrink: 0;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    color: var(--text);
+}
+
+.profile-meta {
+    display: flex;
+    gap: var(--sp-4);
+    margin-top: var(--sp-2);
+    flex-wrap: wrap;
+}
+
+.profile-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+/* ── Consent Signature Area ── */
+.signature-pad {
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    cursor: crosshair;
+    transition: all var(--transition-fast);
+}
+
+.signature-pad:hover {
+    border-color: var(--primary-light);
+    background: var(--primary-bg);
+}
+
+/* ── Approval Checklist ── */
+.approval-check {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) 0;
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+}
+
+.approval-check input:checked+span {
+    color: var(--success);
+}

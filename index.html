@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Dental OPD Case Sheet Management System — Streamline patient workflow from registration to treatment.">
+  <title>DentaCare OPD — Case Sheet Management</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════ LOGIN PAGE ═══════════════════ -->
+  <div id="login-page" class="login-layout">
+    <div class="login-left">
+      <div class="login-branding">
+        <div style="font-size:3rem;margin-bottom:1rem;">🦷</div>
+        <h1>DentaCare OPD</h1>
+        <p>Comprehensive Case Sheet Management for Modern Dental Practices</p>
+        <div style="margin-top:2rem;display:flex;gap:2rem;justify-content:center;opacity:0.7;font-size:0.875rem;">
+          <div>✓ Role-Based Access</div>
+          <div>✓ Digital Case Sheets</div>
+          <div>✓ Integrated Radiology</div>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      <div class="login-form-wrapper">
+        <h2>Welcome Back</h2>
+        <p class="login-subtitle">Sign in to access your dashboard</p>
+        <form id="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label">Email / Staff ID</label>
+            <input type="text" class="form-input" placeholder="Enter your email or staff ID" value="dr.diva@dental.edu">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" placeholder="Enter your password" value="••••••••">
+          </div>
+          <div class="form-group" style="display:flex;justify-content:space-between;align-items:center;">
+            <label class="form-check">
+              <input type="checkbox" checked> <span style="font-size:0.8125rem;color:var(--text-secondary)">Remember
+                me</span>
+            </label>
+            <a href="#" style="font-size:0.8125rem;">Forgot Password?</a>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Login as Role <span class="required">*</span></label>
+            <select class="form-select" id="login-role">
+              <option value="junior_resident">Junior Resident</option>
+              <option value="senior_resident">Senior Resident</option>
+              <option value="asst_professor">Assistant Professor</option>
+              <option value="assoc_professor">Associate Professor</option>
+              <option value="hod">HOD</option>
+              <option value="op_incharge">OP In-Charge</option>
+              <option value="reception">Reception</option>
+              <option value="radiology">Radiology</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="login-btn" style="margin-top:var(--sp-4);">
+            Sign In
+          </button>
+        </form>
+        <p style="text-align:center;margin-top:var(--sp-6);font-size:var(--fs-xs);color:var(--text-muted);">
+          College of Dental Sciences & Hospital
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ APP SHELL ═══════════════════ -->
+  <div id="app-shell" class="app hidden">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🦷</div>
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-name">DentaCare OPD</span>
+          <span class="sidebar-brand-sub">Case Management</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <!-- Dynamically populated -->
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user">
+          <div class="sidebar-avatar" id="sidebar-avatar">DC</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name" id="sidebar-user-name">Dr. Diva Chaitava</div>
+            <div class="sidebar-user-role" id="sidebar-user-role">Junior Resident</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main-wrapper">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <h1 class="topbar-title" id="topbar-title">Dashboard</h1>
+        <div class="topbar-spacer"></div>
+        <div class="topbar-search">
+          <i data-lucide="search" class="topbar-search-icon" style="width:14px;height:14px;"></i>
+          <input type="text" placeholder="Search patients, cases...">
+        </div>
+        <div class="topbar-actions">
+          <button class="topbar-btn" data-tooltip="Notifications" onclick="navigateTo('notifications')">
+            <i data-lucide="bell" style="width:18px;height:18px;"></i>
+            <span class="notif-dot"></span>
+          </button>
+          <div class="role-switcher">
+            <button class="role-switcher-btn" id="role-switcher-btn" onclick="toggleRoleDropdown()">
+              <i data-lucide="user-cog" style="width:14px;height:14px;"></i>
+              <span id="role-label">Junior Resident</span>
+              <i data-lucide="chevron-down" style="width:12px;height:12px;"></i>
+            </button>
+            <div class="role-switcher-dropdown" id="role-dropdown">
+              <div class="role-option active" data-role="junior_resident">👨‍⚕️ Junior Resident</div>
+              <div class="role-option" data-role="senior_resident">👩‍⚕️ Senior Resident</div>
+              <div class="role-option" data-role="asst_professor">🎓 Assistant Professor</div>
+              <div class="role-option" data-role="assoc_professor">📋 Associate Professor</div>
+              <div class="role-option" data-role="hod">🏥 HOD</div>
+              <div class="role-option" data-role="op_incharge">📊 OP In-Charge</div>
+              <div class="role-option" data-role="reception">🖥️ Reception</div>
+              <div class="role-option" data-role="radiology">📸 Radiology</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Content -->
+      <main class="content" id="content">
+        <!-- Pages rendered here by JS -->
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data/mock-data.js"></script>
+
+  <!-- Firebase Integration -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      projectId: "tetherx-4d5a2",
+      appId: "1:1023477108719:web:011846dc440f8fcce3b01a",
+      storageBucket: "tetherx-4d5a2.firebasestorage.app",
+      apiKey: "AIzaSyD7qHEhSZRwoDe-VvsJ_gevwmC_jyPh2yA",
+      authDomain: "tetherx-4d5a2.firebaseapp.com",
+      messagingSenderId: "1023477108719"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const loginBtn = document.getElementById('login-btn');
+    if (loginBtn) {
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Loading from Firebase...';
+    }
+
+    async function syncFirebase() {
+      try {
+        const collections = ['roleUsers', 'doctors', 'patients', 'appointments', 'notifications', 'investigations', 'drugs', 'approvals'];
+
+        const docsSnapshot = await db.collection('doctors').limit(1).get();
+        if (docsSnapshot.empty) {
+          console.log("Firestore is empty. Uploading mock data...");
+          for (let c of collections) {
+            let data = MOCK[c];
+            if (Array.isArray(data)) {
+              for (let item of data) {
+                let docId = item.id || item.uhid || item.name.replace(/[^a-zA-Z0-9]/g, '');
+                await db.collection(c).doc(docId).set(item);
+              }
+            } else {
+              for (let key in data) {
+                await db.collection(c).doc(key).set(data[key]);
+              }
+            }
+          }
+          await db.collection('meta').doc('queue').set(MOCK.queue);
+          await db.collection('meta').doc('currentUser').set(MOCK.currentUser);
+          await db.collection('meta').doc('roleLabels').set(MOCK.roleLabels);
+          console.log("Upload complete.");
+        } else {
+          console.log("Firestore has data. Fetching to override MOCK...");
+          for (let c of collections) {
+            const snapshot = await db.collection(c).get();
+            if (!snapshot.empty) {
+              if (Array.isArray(MOCK[c])) {
+                MOCK[c] = snapshot.docs.map(doc => doc.data());
+              } else {
+                MOCK[c] = {};
+                snapshot.forEach(doc => { MOCK[c][doc.id] = doc.data(); });
+              }
+            }
+          }
+          const qDoc = await db.collection('meta').doc('queue').get();
+          if (qDoc.exists) MOCK.queue = qDoc.data();
+          const cDoc = await db.collection('meta').doc('currentUser').get();
+          if (cDoc.exists) MOCK.currentUser = cDoc.data();
+          const rDoc = await db.collection('meta').doc('roleLabels').get();
+          if (rDoc.exists) MOCK.roleLabels = rDoc.data();
+        }
+        if (loginBtn) {
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Sign In';
+        }
+      } catch (e) {
+        console.error("Firebase sync error: ", e);
+        if (loginBtn) {
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Sign In (Offline Mode)';
+        }
+      }
+    }
+    syncFirebase();
+  </script>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/patient-list.js"></script>
+  <script src="js/pages/patient-register.js"></script>
+  <script src="js/pages/patient-profile.js"></script>
+  <script src="js/pages/vital-signs.js"></script>
+  <script src="js/pages/case-history.js"></script>
+  <script src="js/pages/clinical-exam.js"></script>
+  <script src="js/pages/dental-chart.js"></script>
+  <script src="js/pages/investigation.js"></script>
+  <script src="js/pages/diagnosis.js"></script>
+  <script src="js/pages/treatment-plan.js"></script>
+  <script src="js/pages/consent.js"></script>
+  <script src="js/pages/prescription.js"></script>
+  <script src="js/pages/radiology-queue.js"></script>
+  <script src="js/pages/appointments.js"></script>
+  <script src="js/pages/queue-mgmt.js"></script>
+  <script src="js/pages/approvals.js"></script>
+  <script src="js/pages/notifications.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/help.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
