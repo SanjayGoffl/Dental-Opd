@@ -2,7 +2,6 @@
 // DENTAL OPD — Approvals Page
 // ============================================
 
-<<<<<<< HEAD
 let approvalsPriorityFirst = false;
 
 function approvalUrgencyRank(level) {
@@ -28,24 +27,18 @@ function renderApprovals() {
         ? sortApprovalsByPriority(MOCK.approvals)
         : MOCK.approvals;
 
-=======
-function renderApprovals() {
->>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
         <h1>Approvals</h1>
         <p class="text-secondary" style="margin-bottom:0;">Review and approve pending clinical actions</p>
       </div>
-<<<<<<< HEAD
       <div class="page-header-actions">
         <button class="btn ${approvalsPriorityFirst ? 'btn-primary' : 'btn-secondary'}" onclick="toggleApprovalsPriority()">
           <i data-lucide="arrow-up-down" style="width:16px;height:16px;"></i>
           Priority First: ${approvalsPriorityFirst ? 'On' : 'Off'}
         </button>
       </div>
-=======
->>>>>>> origin/main
     </div>
 
     <!-- Stats -->
@@ -76,11 +69,7 @@ function renderApprovals() {
 
     <!-- Pending Approvals -->
     <div class="tab-content active" id="tab-appr-pending">
-<<<<<<< HEAD
       ${pendingApprovals.map(a => `
-=======
-      ${MOCK.approvals.map(a => `
->>>>>>> origin/main
         <div class="card mb-3" style="border-left:3px solid var(--warning);">
           <div style="display:flex;justify-content:space-between;align-items:start;">
             <div>
@@ -90,11 +79,7 @@ function renderApprovals() {
             </div>
             <div class="text-right">
               <span class="fs-xs text-muted">${a.date}</span>
-<<<<<<< HEAD
               <span class="badge ${['Urgent', 'Emergency'].includes(a.urgency) ? 'badge-urgent' : 'badge-routine'} ml-2">${a.urgency}</span>
-=======
-              <span class="badge ${a.urgency === 'Urgent' ? 'badge-urgent' : 'badge-routine'} ml-2">${a.urgency}</span>
->>>>>>> origin/main
             </div>
           </div>
           <div style="background:var(--bg);padding:var(--sp-3);border-radius:var(--radius);margin-top:var(--sp-3);">

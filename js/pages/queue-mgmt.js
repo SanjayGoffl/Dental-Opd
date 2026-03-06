@@ -33,11 +33,7 @@ function renderQueueMgmt() {
               <span class="queue-token">${p.token}</span>
             </div>
             <div class="queue-card-meta mt-2">
-<<<<<<< HEAD
               <span>⏱ ${p.waitTime}</span>
-=======
-              <span>${p.waitTime}</span>
->>>>>>> origin/main
               <span class="badge ${p.urgency === 'Urgent' ? 'badge-urgent' : 'badge-routine'}">${p.urgency}</span>
             </div>
             <button class="btn btn-primary btn-sm btn-block mt-2"><i data-lucide="arrow-right" style="width:14px;height:14px;"></i> Call</button>
@@ -61,13 +57,8 @@ function renderQueueMgmt() {
               <span class="queue-token">${p.token}</span>
             </div>
             <div class="queue-card-meta mt-2">
-<<<<<<< HEAD
               <span>👨‍⚕️ ${p.doctor}</span>
               <span>⏱ ${p.duration}</span>
-=======
-              <span>${p.doctor}</span>
-              <span>${p.duration}</span>
->>>>>>> origin/main
             </div>
             <div class="queue-card-meta mt-1">
               <span>📍 ${p.unit || 'Unit 1'}</span>
@@ -94,11 +85,7 @@ function renderQueueMgmt() {
               <span class="queue-token">${p.token}</span>
             </div>
             <div class="queue-card-meta mt-2">
-<<<<<<< HEAD
               <span>👨‍⚕️ ${p.doctor}</span>
-=======
-              <span>${p.doctor}</span>
->>>>>>> origin/main
               <span class="badge badge-completed">Done</span>
             </div>
           </div>

@@ -2,12 +2,8 @@
 // DENTAL OPD — Clinical Examination Page
 // ============================================
 
-<<<<<<< HEAD
 function renderClinicalExam(role, params) {
     const p = getActivePatient(params);
-=======
-function renderClinicalExam() {
->>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -22,13 +18,8 @@ function renderClinicalExam() {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
-<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div><b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender}</div>
-=======
-      <div class="avatar">R</div>
-      <div><b>Ramesh Kumar</b> • UHID-2024-001 • 45/M</div>
->>>>>>> origin/main
     </div>
 
     <!-- General Examination -->
@@ -180,17 +171,10 @@ function renderClinicalExam() {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-4);">
-<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('case-history', {id:'${p.id}'})">← Case History</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary">Save Draft</button>
         <button class="btn btn-primary btn-lg" onclick="navigateTo('dental-chart', {id:'${p.id}'})"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Dental Chart</button>
-=======
-      <button class="btn btn-ghost" onclick="navigateTo('case-history')">← Case History</button>
-      <div style="display:flex;gap:var(--sp-3);">
-        <button class="btn btn-secondary">Save Draft</button>
-        <button class="btn btn-primary btn-lg" onclick="navigateTo('dental-chart')"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Dental Chart</button>
->>>>>>> origin/main
       </div>
     </div>`;
 }

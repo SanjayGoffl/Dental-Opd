@@ -2,14 +2,10 @@
 // DENTAL OPD — Prescription Page
 // ============================================
 
-<<<<<<< HEAD
 function renderPrescription(role, params) {
     const p = getActivePatient(params);
     const allergyText = p.allergies.length ? p.allergies.join(', ') : 'None';
     const hasAllergy = p.allergies.length > 0;
-=======
-function renderPrescription() {
->>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -24,17 +20,10 @@ function renderPrescription() {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
-<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div style="flex:1;">
         <b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender} • ${p.bloodGroup}<br>
         <span class="fs-xs ${hasAllergy ? 'text-danger' : 'text-muted'} fw-medium">${hasAllergy ? '⚠ Allergy: ' + allergyText : 'No known allergies'}</span>
-=======
-      <div class="avatar">R</div>
-      <div style="flex:1;">
-        <b>Ramesh Kumar</b> • UHID-2024-001 • 45/M • B+<br>
-        <span class="fs-xs text-danger fw-medium">⚠ Allergy: Penicillin</span>
->>>>>>> origin/main
       </div>
     </div>
 
@@ -140,11 +129,7 @@ function renderPrescription() {
       <!-- Allergy Warning -->
       <div style="margin-top:var(--sp-4);padding:var(--sp-3);background:var(--danger-bg);border-left:3px solid var(--danger);border-radius:var(--radius);display:flex;align-items:center;gap:var(--sp-2);">
         <i data-lucide="alert-triangle" style="width:16px;height:16px;color:var(--danger);"></i>
-<<<<<<< HEAD
         <span class="fs-sm"><b>Allergy Alert:</b> ${hasAllergy ? `Patient is allergic to <b>${allergyText}</b>. Amoxicillin excluded from drug list.` : 'No known drug allergies recorded.'}</span>
-=======
-        <span class="fs-sm"><b>Allergy Alert:</b> Patient is allergic to <b>Penicillin</b>. Amoxicillin excluded from drug list.</span>
->>>>>>> origin/main
       </div>
     </div>
 
@@ -172,11 +157,7 @@ function renderPrescription() {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-5);">
-<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('consent', {id:'${p.id}'})">← Consent</button>
-=======
-      <button class="btn btn-ghost" onclick="navigateTo('consent')">← Consent</button>
->>>>>>> origin/main
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary"><i data-lucide="printer" style="width:16px;height:16px;"></i> Print Rx</button>
         <button class="btn btn-primary btn-lg"><i data-lucide="check" style="width:16px;height:16px;"></i> Finalize Prescription</button>

@@ -2,12 +2,8 @@
 // DENTAL OPD — Treatment Plan Page
 // ============================================
 
-<<<<<<< HEAD
 function renderTreatmentPlan(role, params) {
     const p = getActivePatient(params);
-=======
-function renderTreatmentPlan() {
->>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
@@ -22,21 +18,12 @@ function renderTreatmentPlan() {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
-<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div style="flex:1;">
         <b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender}<br>
         <span class="fs-xs text-muted">Chief Complaint: ${p.chiefComplaint}</span>
       </div>
       ${statusBadge(p.status)}
-=======
-      <div class="avatar">R</div>
-      <div style="flex:1;">
-        <b>Ramesh Kumar</b> • UHID-2024-001 • 45/M<br>
-        <span class="fs-xs text-muted">Dx: Irreversible Pulpitis with Periapical Abscess w.r.t. #46</span>
-      </div>
-      ${statusBadge('approved')}
->>>>>>> origin/main
     </div>
 
     <!-- Treatment Steps -->
@@ -143,17 +130,10 @@ function renderTreatmentPlan() {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-4);">
-<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('diagnosis', {id:'${p.id}'})">← Diagnosis</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary">Save Draft</button>
         <button class="btn btn-primary btn-lg" onclick="navigateTo('consent', {id:'${p.id}'})"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Consent</button>
-=======
-      <button class="btn btn-ghost" onclick="navigateTo('diagnosis')">← Diagnosis</button>
-      <div style="display:flex;gap:var(--sp-3);">
-        <button class="btn btn-secondary">Save Draft</button>
-        <button class="btn btn-primary btn-lg" onclick="navigateTo('consent')"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Consent</button>
->>>>>>> origin/main
       </div>
     </div>`;
 }

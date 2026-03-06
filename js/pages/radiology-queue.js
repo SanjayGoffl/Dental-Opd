@@ -2,7 +2,6 @@
 // DENTAL OPD — Radiology Imaging Queue
 // ============================================
 
-<<<<<<< HEAD
 let radiologyPriorityFirst = false;
 
 function radiologyUrgencyRank(level) {
@@ -32,57 +31,37 @@ function renderRadiologyQueue() {
     const inProgress = radiologyPriorityFirst ? sortRadiologyByPriority(inProgressRequests) : inProgressRequests;
     const completed = radiologyPriorityFirst ? sortRadiologyByPriority(completedRequests) : completedRequests;
 
-=======
-function renderRadiologyQueue() {
->>>>>>> origin/main
     return `
     <div class="page-header">
       <div>
         <h1>Imaging Requests</h1>
         <p class="text-secondary" style="margin-bottom:0;">Manage radiology imaging requests and reports</p>
       </div>
-<<<<<<< HEAD
       <div class="page-header-actions">
         <button class="btn ${radiologyPriorityFirst ? 'btn-primary' : 'btn-secondary'}" onclick="toggleRadiologyPriority()">
           <i data-lucide="arrow-up-down" style="width:16px;height:16px;"></i>
           Priority First: ${radiologyPriorityFirst ? 'On' : 'Off'}
         </button>
       </div>
-=======
->>>>>>> origin/main
     </div>
 
     <!-- Tabs -->
     <div class="tabs" id="rad-tabs">
-<<<<<<< HEAD
       <button class="tab active" data-tab="rad-pending" onclick="switchRadTab('rad-pending')">Pending (${pendingRequests.length})</button>
       <button class="tab" data-tab="rad-progress" onclick="switchRadTab('rad-progress')">In Progress (${inProgressRequests.length})</button>
       <button class="tab" data-tab="rad-completed" onclick="switchRadTab('rad-completed')">Completed (${completedRequests.length})</button>
-=======
-      <button class="tab active" data-tab="rad-pending" onclick="switchRadTab('rad-pending')">Pending (${MOCK.investigations.filter(i => i.status === 'Requested').length})</button>
-      <button class="tab" data-tab="rad-progress" onclick="switchRadTab('rad-progress')">In Progress (${MOCK.investigations.filter(i => i.status === 'In Progress').length})</button>
-      <button class="tab" data-tab="rad-completed" onclick="switchRadTab('rad-completed')">Completed (${MOCK.investigations.filter(i => i.status === 'Completed').length})</button>
->>>>>>> origin/main
     </div>
 
     <!-- Pending -->
     <div class="tab-content active" id="tab-rad-pending">
-<<<<<<< HEAD
       ${pending.map(inv => `
-=======
-      ${MOCK.investigations.filter(i => i.status === 'Requested').map(inv => `
->>>>>>> origin/main
         <div class="card mb-3" style="border-left:3px solid var(--accent);">
           <div style="display:flex;justify-content:space-between;align-items:start;">
             <div>
               <div class="fw-semibold">${inv.patientName}</div>
               <div class="fs-xs text-muted">${inv.id} • Requested by ${inv.requestedBy}</div>
             </div>
-<<<<<<< HEAD
             <span class="badge ${['Urgent', 'Emergency'].includes(inv.urgency) ? 'badge-urgent' : 'badge-routine'}">${inv.urgency}</span>
-=======
-            <span class="badge ${inv.urgency === 'Urgent' ? 'badge-urgent' : 'badge-routine'}">${inv.urgency}</span>
->>>>>>> origin/main
           </div>
           <div class="grid grid-3 gap-3 mt-3">
             <div><span class="text-muted fs-xs">Type</span><div class="fs-sm fw-medium">${inv.type}</div></div>
@@ -99,11 +78,7 @@ function renderRadiologyQueue() {
 
     <!-- In Progress -->
     <div class="tab-content" id="tab-rad-progress">
-<<<<<<< HEAD
       ${inProgress.map(inv => `
-=======
-      ${MOCK.investigations.filter(i => i.status === 'In Progress').map(inv => `
->>>>>>> origin/main
         <div class="card mb-3" style="border-left:3px solid var(--info);">
           <div style="display:flex;justify-content:space-between;align-items:start;">
             <div>
@@ -126,11 +101,7 @@ function renderRadiologyQueue() {
 
     <!-- Completed -->
     <div class="tab-content" id="tab-rad-completed">
-<<<<<<< HEAD
       ${completed.map(inv => `
-=======
-      ${MOCK.investigations.filter(i => i.status === 'Completed').map(inv => `
->>>>>>> origin/main
         <div class="card mb-3" style="border-left:3px solid var(--success);">
           <div style="display:flex;justify-content:space-between;align-items:start;">
             <div>

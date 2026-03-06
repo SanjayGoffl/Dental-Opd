@@ -2,7 +2,6 @@
 // DENTAL OPD — Interactive Dental Chart
 // ============================================
 
-<<<<<<< HEAD
 function renderDentalChart(role, params) {
     const p = getActivePatient(params);
     const upperRight = [18, 17, 16, 15, 14, 13, 12, 11];
@@ -19,23 +18,6 @@ function renderDentalChart(role, params) {
     }
 
     return `
-=======
-function renderDentalChart() {
-  const upperRight = [18, 17, 16, 15, 14, 13, 12, 11];
-  const upperLeft = [21, 22, 23, 24, 25, 26, 27, 28];
-  const lowerLeft = [31, 32, 33, 34, 35, 36, 37, 38];
-  const lowerRight = [48, 47, 46, 45, 44, 43, 42, 41];
-
-  // Pre-set conditions for demo
-  const conditions = { 46: 'caries', 36: 'filled', 17: 'crown', 24: 'rct', 38: 'missing' };
-
-  function toothHtml(num, archClass) {
-    const cond = conditions[num] || '';
-    return `<div class="tooth ${cond}" data-num="${num}" onclick="selectTooth(this)">${num}</div>`;
-  }
-
-  return `
->>>>>>> origin/main
     <div class="page-header">
       <div>
         <h1>Dental Chart</h1>
@@ -49,13 +31,8 @@ function renderDentalChart() {
 
     <!-- Patient Banner -->
     <div style="display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-3) var(--sp-4);background:var(--primary-bg);border-radius:var(--radius);margin-bottom:var(--sp-5);border:1px solid var(--primary-100);">
-<<<<<<< HEAD
       <div class="avatar">${p.name.charAt(0)}</div>
       <div><b>${p.name}</b> • ${p.uhid} • ${p.age}/${p.gender}</div>
-=======
-      <div class="avatar">R</div>
-      <div><b>Ramesh Kumar</b> • UHID-2024-001 • 45/M</div>
->>>>>>> origin/main
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 280px;gap:var(--sp-5);">
@@ -111,11 +88,7 @@ function renderDentalChart() {
       <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
         <!-- Selected Tooth Info -->
         <div class="card" id="tooth-info-panel">
-<<<<<<< HEAD
           <div class="card-title mb-3">🦷 Tooth Details</div>
-=======
-          <div class="card-title mb-3">Tooth Details</div>
->>>>>>> origin/main
           <div id="tooth-info-content">
             <p class="text-muted fs-sm text-center">Click a tooth to see details</p>
           </div>
@@ -133,11 +106,7 @@ function renderDentalChart() {
 
         <!-- Notes -->
         <div class="card">
-<<<<<<< HEAD
           <div class="card-title mb-3">📝 Chart Notes</div>
-=======
-          <div class="card-title mb-3">Chart Notes</div>
->>>>>>> origin/main
           <textarea class="form-textarea" rows="4" placeholder="Enter notes about the charting...">46: Deep carious lesion, negative vitality.
 36: Old amalgam filling, satisfactory.
 38: Missing / unerupted.</textarea>
@@ -146,17 +115,10 @@ function renderDentalChart() {
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-top:var(--sp-6);">
-<<<<<<< HEAD
       <button class="btn btn-ghost" onclick="navigateTo('clinical-exam', {id:'${p.id}'})">← Clinical Exam</button>
       <div style="display:flex;gap:var(--sp-3);">
         <button class="btn btn-secondary">Save Draft</button>
         <button class="btn btn-primary btn-lg" onclick="navigateTo('investigation', {id:'${p.id}'})"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Investigations</button>
-=======
-      <button class="btn btn-ghost" onclick="navigateTo('clinical-exam')">← Clinical Exam</button>
-      <div style="display:flex;gap:var(--sp-3);">
-        <button class="btn btn-secondary">Save Draft</button>
-        <button class="btn btn-primary btn-lg" onclick="navigateTo('investigation')"><i data-lucide="arrow-right" style="width:16px;height:16px;"></i> Investigations</button>
->>>>>>> origin/main
       </div>
     </div>`;
 }
@@ -164,7 +126,6 @@ function renderDentalChart() {
 let selectedCondition = 'caries';
 
 function selectTooth(el) {
-<<<<<<< HEAD
     document.querySelectorAll('.tooth.selected').forEach(t => {
         if (!t.dataset.originalClass) t.dataset.originalClass = '';
         t.className = 'tooth ' + (t.dataset.originalClass || '');
@@ -176,19 +137,6 @@ function selectTooth(el) {
     const num = el.dataset.num;
     const cond = el.dataset.originalClass || 'Normal';
     document.getElementById('tooth-info-content').innerHTML = `
-=======
-  document.querySelectorAll('.tooth.selected').forEach(t => {
-    if (!t.dataset.originalClass) t.dataset.originalClass = '';
-    t.className = 'tooth ' + (t.dataset.originalClass || '');
-  });
-
-  el.dataset.originalClass = el.className.replace('tooth ', '').replace(' selected', '');
-  el.classList.add('selected');
-
-  const num = el.dataset.num;
-  const cond = el.dataset.originalClass || 'Normal';
-  document.getElementById('tooth-info-content').innerHTML = `
->>>>>>> origin/main
     <div style="display:flex;flex-direction:column;gap:var(--sp-2);">
       <div><span class="text-muted fs-xs">Tooth Number</span><div class="fw-bold fs-lg">#${num}</div></div>
       <div><span class="text-muted fs-xs">Current Condition</span><div class="fw-medium fs-sm" style="text-transform:capitalize;">${cond || 'Normal'}</div></div>
@@ -197,13 +145,7 @@ function selectTooth(el) {
 }
 
 function selectCondition(btn, cond) {
-<<<<<<< HEAD
     document.querySelectorAll('.condition-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     selectedCondition = cond;
-=======
-  document.querySelectorAll('.condition-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  selectedCondition = cond;
->>>>>>> origin/main
 }
